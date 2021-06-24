@@ -1,0 +1,21 @@
+
+#Game in which computer generates secret number and we have to guess it----
+
+#Import functions to get pseudorandom numbers (the generation of true random numbers is an unsolved problem in computer science)
+import random
+
+#Define function guess
+def guess(x):
+    random_number = random.randint(1, x)                                                #Returns ramdom integer between 1 and x
+    guess = 0                                                                           #Initialise variable guess with 0 to change it later. 0 because don't accidentally want to equal random number
+    while guess != random_number:                                                       #While loop keeps reiterating while the guess is not equal to the random number
+        guess = int(input(f'Guess a number between 1 and {x}: '))                       #int because want guesses to be integers. F string embedds the expression x into a string
+        if guess < random_number:                                                       #If our guess is lower than the secret number then return too low
+            print("Sorry, guess again.Too low.")
+        elif guess > random_number:                                                     #If our guess is greater than the secret number return too high
+            print("Sorry, guess again. Too high.")
+
+    print(f"Congratulations! You have guessed the number {random_number} correctly")    #After loop is broken return that we have gues the number correctly
+
+#Call function guess and assign x a limit of 10
+guess(10)                 
