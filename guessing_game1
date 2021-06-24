@@ -15,7 +15,7 @@ def guess(x):
         elif guess > random_number:                                                     #If our guess is greater than the secret number return too high
             print("Sorry, guess again. Too high.")
 
-    print(f"Congratulations! You have guessed the number {random_number} correctly")    #After loop is broken return that we have gues the number correctly
+    print(f"Congratulations! You have guessed the number {random_number} correctly")    #After loop is broken return that we have guess the number correctly
 
 #Call function guess and assign x a limit of 10
 guess(10)                 
