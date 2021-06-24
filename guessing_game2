@@ -1,0 +1,26 @@
+#Game in which we have a secret number and the computer has to guess it
+
+#Import functions to create pseudorandom numbers (the generation of true random numbers is an unsolved problem in computer science)
+import random
+
+#Define function computer_guess
+def computer_guess(x):
+    guess = 0                                                                         #Initialise guess variable to 0 so can change it later
+    low = 1                                                                           #Assign lower range to variable low
+    high = x                                                                          #Assign upper range (to be defined later) to variable high
+    feedback = " "                                                                    #Assign feeback to empty string which we will fill in later
+    while feedback != "c":                                                            #While loop keeps reiterating while the user input is not c
+        if low != high:                                                               #If 1 is not the same as the random number then guess number between low and high
+            guess = random.randint(low, high)
+        else:
+            guess = low                                                               #If 1 is the same as the ramdom number guess low or high as they both equal 1
+        feedback = input(f"Is {guess} too high (h), too low (l) or correct (c)?")     #User input - is number guessed by the computer too high, too low or correct?
+        if feedback == "h":                                                           #If user input equals h then guess one number below the previous guess
+            high = guess - 1
+        elif feedback == "l":                                                         #If user input equals l then guess one number above the previous guess
+            low = guess + 1
+
+    print(f"Yay! The computer guessed the number {guess} correctly!")                #After loop is broken return the computer guessed correctly
+
+#Call function and assign the upper limit
+computer_guess(10)                                                                    
